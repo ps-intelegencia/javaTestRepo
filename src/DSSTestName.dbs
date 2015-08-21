@@ -9,8 +9,7 @@
     <policy key=""/>
     <query id="Query_1" useConfig="DSSID_1">
         <sql>SELECT guid, content_token, checksum
-FROM wso2
-WERE guid=?
+FROM wso2 WERE content_token=?sdfsdfsdfsdfsdf sdfsdfsdfs sdfsdsdafsdafsdfsdf
     </sql>
         <param name="GUID" paramType="SCALAR" sqlType="STRING" type="OUT"/>
         <param name="CONTENT_TOKEN" paramType="SCALAR" sqlType="STRING" type="OUT"/>
