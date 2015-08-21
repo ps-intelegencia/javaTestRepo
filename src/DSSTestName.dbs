@@ -1,0 +1,26 @@
+<data name="DSSTestName" serviceGroup="" serviceNamespace="">
+    <description/>
+    <config id="DSSID_1">
+        <property name="org.wso2.ws.dataservice.user">ecom1</property>
+        <property name="org.wso2.ws.dataservice.password">ecom1</property>
+        <property name="org.wso2.ws.dataservice.protocol">jdbc:oracle:thin:@ecom:1521:orcl</property>
+        <property name="org.wso2.ws.dataservice.driver">oracle.jdbc.driver.OracleDriver</property>
+    </config>
+    <policy key=""/>
+    <query id="Query_1" useConfig="DSSID_1">
+        <sql>SELECT guid, content_token, checksum
+FROM wso2
+WERE guid=?
+    </sql>
+        <param name="GUID" paramType="SCALAR" sqlType="STRING" type="OUT"/>
+        <param name="CONTENT_TOKEN" paramType="SCALAR" sqlType="STRING" type="OUT"/>
+        <param name="CHECKSUM" paramType="SCALAR" sqlType="STRING" type="OUT"/>
+        <result defaultNamespace="GUID" element="GUID" rowName="GUID" useColumnNumbers="true" escapeNonPrintableChar="true"/>
+    </query>
+    <operation disableStreaming="true" name="Operation_1">
+        <call-query href="Query_1"/>
+    </operation>
+    <resource method="GET" path="/resource" returnRequestStatus="true">
+        <call-query href="Query_1"/>
+    </resource>
+</data>
