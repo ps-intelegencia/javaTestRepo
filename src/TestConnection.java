@@ -16,10 +16,10 @@ public class TestConnection {
    	  
      	//step2 create  the connection object  
      	conn=DriverManager.getConnection("jdbc:oracle:thin:@ecom.intelegencia.com:1521:orcl","ecom1","ecom1");  
-		System.out.println("con..."+conn);
+		//System.out.println("con..."+conn);
 		PreparedStatement ps=conn.prepareStatement("SELECT * FROM WSO2");
         ResultSet rs = ps.executeQuery();
-        // ResultSet rs = ps.executeQuery();
+       
     	while(rs.next()){
     	 System.out.println("rs......."+rs.getString("name"));
     	} 
