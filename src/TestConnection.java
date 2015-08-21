@@ -19,7 +19,7 @@ public class TestConnection {
 		System.out.println("con..."+conn);
 		PreparedStatement ps=conn.prepareStatement("SELECT * FROM WSO2");
         ResultSet rs = ps.executeQuery();
-        //dsahjfgsadhkjfgdfslk  alok kumar321
+        // ResultSet rs = ps.executeQuery();
     	while(rs.next()){
     	 System.out.println("rs......."+rs.getString("name"));
     	} 
